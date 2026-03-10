@@ -1,46 +1,50 @@
-import { Link } from "expo-router";
+import { useRouter } from "expo-router"; 
 import { ScrollView, View } from "react-native";
-import { Avatar, Text } from "react-native-paper";
-import styles from "./(tabs)/AppStyles";
+import { Avatar, Card, Text } from "react-native-paper";
+
+// 1. PERBAIKAN PATH: Karena userList.tsx ada di folder 'app' 
+// dan file ini ada di folder '(tabs)', maka tambahkan /(tabs)/
+import styles from "./(tabs)/AppStyles"; 
 import userData from "./(tabs)/data.json";
 
-export default function userList() {
+export default function UserList() {
+  const router = useRouter();
+
+  const handlePress = (user: any) => {
+    router.push({
+      pathname: "/profile",
+      params: {
+        userName: user.name,
+        userEmail: user.email,
+        userPhoto: user.photo_url,
+      },
+    });
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {userData.map((users, index) => (
-        <Link
-          key={index}
-          href={{
-            pathname: "/profile",
-            params: {
-              userName: users.name,
-              userEmail: users.email,
-              userPhoto: users.photo_url,
-            },
-          } as any}
-          push
+      {/* 2. PERBAIKAN TYPE: Tambahkan ': any' dan ': number' pada parameter map */}
+      {userData.map((users: any, index: number) => (
+        <Card 
+          key={index} 
+          style={[styles.card, { marginVertical: 8, marginHorizontal: 16 }]}
+          onPress={() => handlePress(users)}
         >
-          <View style={{
-            backgroundColor: "#2C2C2E",
-            borderRadius: 12,
-            padding: 12,
-            flexDirection: "row",
-            alignItems: "center",
-            gap: 12,
-            marginBottom: 12,
-            width: "100%",
-          }}>
-            <Avatar.Image size={70} source={{ uri: users.photo_url }} />
-            <View>
-              <Text variant="titleMedium" style={{ color: "#FFFFFF", fontWeight: "bold" }}>
+          <Card.Content style={styles.cardContent}>
+            <Avatar.Image
+              size={70}
+              source={{ uri: users.photo_url }}
+            />
+            <View style={styles.textContainer}>
+              <Text variant="titleMedium" style={{ fontWeight: 'bold' }}>
                 {users.name}
               </Text>
-              <Text variant="bodyMedium" style={{ color: "#AAAAAA" }}>
+              <Text variant="bodyMedium">
                 {users.email}
               </Text>
             </View>
-          </View>
-        </Link>
+          </Card.Content>
+        </Card>
       ))}
     </ScrollView>
   );

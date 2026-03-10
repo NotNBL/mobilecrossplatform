@@ -1,18 +1,13 @@
-import { useRouter } from "expo-router";
+import { Link } from "expo-router";
 import { Button, Text, View } from "react-native";
 
-export default function Email() {
-  const router = useRouter();
-
+export default function email() {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text style={{ fontSize: 18, fontWeight: "bold", marginBottom: 16 }}>
-        Email List Page
-      </Text>
-      <Button
-        title="Go to Home Screen"
-        onPress={() => router.push("/home" as any)}
-      />
+      <Text>Email List Page</Text>
+      <Link href="/home" push asChild>
+        <Button title="Go to Home Screen" />
+      </Link>
     </View>
   );
 }

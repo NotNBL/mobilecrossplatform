@@ -15,7 +15,7 @@ export default function RootLayout() {
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
           <Stack.Screen name="home" options={{ title: 'home' }} />
-          <Stack.Screen name="email" options={{ title: 'email' }} />
+          {/* Bagian email sudah dihapus dari sini */}
           <Stack.Screen name="userList" options={{ title: 'userList' }} />
           <Stack.Screen name="profile" options={{ title: 'profile' }} />
         </Stack>

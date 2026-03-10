@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: "#F5F5F5", // Abu-abu sangat terang untuk background luar
+    backgroundColor: "#F5F5F5",
   },
   header: {
     backgroundColor: "#FFFFFF",
@@ -23,14 +23,14 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginBottom: 8,
     borderWidth: 1,
-    borderColor: "#E0E0E0", // Outline tipis
+    borderColor: "#E0E0E0",
   },
   card: {
     backgroundColor: "#FFFFFF",
     borderRadius: 12,
   },
   cardTopRow: {
-    flexDirection: "row", // Kunci agar berjejer menyamping!
+    flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     padding: 16,
@@ -38,18 +38,18 @@ const styles = StyleSheet.create({
   userInfo: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 12, // Jarak Avatar ke Teks
+    gap: 12,
   },
   nameEmail: {
     justifyContent: "center",
   },
   boldText: {
     fontWeight: "bold",
-    color: "#000000", // Hitam tegas
+    color: "#000000",
     fontSize: 16,
   },
   emailText: {
-    color: "#555555", // Abu-abu gelap
+    color: "#555555",
     fontSize: 14,
   },
   statusBadge: {
@@ -92,7 +92,41 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
     paddingTop: 8,
     justifyContent: "flex-end",
-  }
+  },
+
+  // ── Week 5 tambahan ──
+  cardContent: {
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 8,
+  },
+  textContainer: {
+    marginLeft: 12,
+    flex: 1,
+  },
+  profileContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#F5F5F5",
+  },
+  profileImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginBottom: 16,
+  },
+  profileName: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#000000",
+    marginBottom: 4,
+  },
+  profileEmail: {
+    fontSize: 14,
+    color: "#555555",
+    marginBottom: 20,
+  },
 });
 
 export default styles;
