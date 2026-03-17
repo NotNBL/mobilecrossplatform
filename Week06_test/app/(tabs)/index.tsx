@@ -1,13 +1,13 @@
 import { Text, View, StyleSheet } from "react-native";
 import { useState } from "react";
-import { CustomTextInput, NIMInput } from "./input";
+import { CustomTextInput, NIMInput } from "@/components/input";
 
-export default function Index() {
+export default function Index(){
 
   const [name, setName] = useState("");
   const [nim, setNim] = useState("");
 
-  return (
+  return(
     <View style={styles.container}>
 
       <Text style={styles.title}>Student Data</Text>
@@ -32,13 +32,14 @@ export default function Index() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 20,
+  container:{
+    flex:1,
+    justifyContent:"center",
+    alignItems:"center",
+    padding:20
   },
-  title: {
-    fontSize: 20,
-    marginBottom: 20,
-  },
+  title:{
+    fontSize:22,
+    marginBottom:20
+  }
 });
