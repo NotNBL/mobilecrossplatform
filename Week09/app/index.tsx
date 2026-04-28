@@ -213,7 +213,7 @@ export default function Index() {
               <Switch 
                 value={cameraEnabled} 
                 onValueChange={setCameraEnabled} 
-                trackColor={{ false: '#333', true: '#c084fc' }}
+                trackColor={{ false: '#333', true: '#ff0000' }}
               />
             </View>
 
@@ -222,7 +222,7 @@ export default function Index() {
               <Switch 
                 value={galleryEnabled} 
                 onValueChange={setGalleryEnabled}
-                trackColor={{ false: '#333', true: '#c084fc' }}
+                trackColor={{ false: '#333', true: '#ff0000' }}
               />
             </View>
 
