@@ -84,7 +84,7 @@ export default function Index() {
     }
 
     try {
-      const { status } = await MediaLibrary.requestPermissionsAsync();
+      const { status } = await MediaLibrary.requestPermissionsAsync(true);
       if (status !== "granted") {
         Alert.alert("Error", "Media library permission is required to save photos!");
         return;
