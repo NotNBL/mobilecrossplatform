@@ -4,7 +4,7 @@ import {
   Image, ScrollView, Modal, TextInput, Switch, 
   KeyboardAvoidingView, Platform, Alert, ActivityIndicator 
 } from "react-native";
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import * as Location from "expo-location";
@@ -62,9 +62,11 @@ export default function App() {
       Alert.alert("Permission denied", "Camera access is required.");
       return;
     }
+    
+    // PERBAIKAN: Menggunakan array string ['images'] menggantikan MediaTypeOptions yang dicoret
     const result = await ImagePicker.launchCameraAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      quality: 0.5, // Dikurangi agar ukuran file tidak terlalu besar saat upload
+      mediaTypes: ['images'], 
+      quality: 0.5, 
     });
 
     if (!result.canceled) {
@@ -84,8 +86,10 @@ export default function App() {
       Alert.alert("Permission denied", "Gallery permission is required!");
       return;
     }
+
+    // PERBAIKAN: Menggunakan array string ['images'] menggantikan MediaTypeOptions yang dicoret
     const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      mediaTypes: ['images'],
       quality: 0.5,
     });
 
